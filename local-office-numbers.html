@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local Office Numbers</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #02060f;
+      color: #e8eef8;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(138, 84, 255, 0.18), transparent 22%),
+                  linear-gradient(180deg, #071229 0%, #020610 100%);
+    }
+    .page {
+      display: grid;
+      place-items: center;
+      padding: 32px 16px 48px;
+    }
+    .card {
+      width: min(900px, 100%);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5, 11, 23, 0.96);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .header {
+      padding: 28px 36px 18px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      letter-spacing: -0.03em;
+    }
+    .header p {
+      margin: 14px 0 0;
+      max-width: 760px;
+      color: #9bb3d4;
+      line-height: 1.75;
+    }
+    .top-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #9bb3d4;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 10px 16px;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .top-link:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(98, 91, 255, 0.6);
+    }
+    .phone-panel {
+      padding: 24px 36px 32px;
+      display: grid;
+      gap: 18px;
+    }
+    .phone-panel h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #eef2ff;
+    }
+    .phone-panel p {
+      margin: 0;
+      color: #9bb3d4;
+      line-height: 1.7;
+    }
+    .phone-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 16px;
+    }
+    .phone-list li {
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      gap: 6px;
+    }
+    .phone-list li strong {
+      display: block;
+      color: #c5d0eb;
+      font-size: 1rem;
+    }
+    .phone-list li span {
+      color: #e8eef8;
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+    .footer {
+      padding: 0 36px 28px;
+      color: #7f96b4;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    @media (max-width: 760px) {
+      .header {
+        padding: 22px 20px 16px;
+      }
+      .phone-panel {
+        padding: 24px 20px 28px;
+      }
+      .footer {
+        padding: 0 20px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="card">
+      <header class="header">
+        <a class="top-link" href="index.html">← Back to main page</a>
+        <h1>Local Office Numbers</h1>
+        <p>Separate directory of phone numbers for each local office grouping. Use this page when you need direct contact information without the county map UI.</p>
+      </header>
+      <section class="phone-panel">
+        <h2>County office phone list</h2>
+        <p>Contact the appropriate office for your county grouping below.</p>
+        <ul class="phone-list">
+          <li><strong>Clark - Arkadelphia</strong><span>(870) 246-4747</span></li>
+          <li><strong>Columbia, Lafayette - Magnolia</strong><span>(870) 234-6444</span></li>
+          <li><strong>Dallas, Calhoun - Fordyce</strong><span>(870) 352-8894</span></li>
+          <li><strong>Garland, Pike, Montgomery</strong><span>(Includes Glenwood &amp; Mt. Ida) - Hot Springs: (501) 623-2896</span></li>
+          <li><strong>Hempstead, Howard, Nevada - Hope</strong><span>(870) 724-5080</span></li>
+          <li><strong>Hot Spring - Malvern/Bismark</strong><span>(501) 332-6215</span></li>
+          <li><strong>Little River, Miller, Sevier - Texarkana</strong><span>(870) 330-4965</span></li>
+          <li><strong>Ouachita - Camden</strong><span>(870) 836-3200</span></li>
+          <li><strong>Saline - Benton</strong><span>(501) 315-0800</span></li>
+          <li><strong>Union - El Dorado</strong><span>(870) 864-0067</span></li>
+        </ul>
+      </section>
+      <footer class="footer">This directory is intentionally separate from the interactive map page to keep the phone contacts easy to find and maintain.</footer>
+    </article>
+  </div>
+</body>
+</html>
