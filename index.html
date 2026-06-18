@@ -399,7 +399,7 @@ d<!DOCTYPE html>
         const borderStateCodes = ['05','29','47','28','22','48','40'];
         const borderStates = states.filter(state => borderStateCodes.includes(String(state.id).padStart(2, '0')) || Number(state.id) === 5);
         const arkansasBorderPoints = getBoundaryPoints(arkansasState);
-        const borderDistanceMiles = 50;
+        const borderDistanceMiles = 25;
         const borderCounties = counties.filter(county => {
           if (county.id.startsWith('05')) return true;
           if (!borderStateCodes.some(code => county.id.startsWith(code))) return false;
