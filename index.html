@@ -1,4 +1,4 @@
-d<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,6 +10,9 @@ d<!DOCTYPE html>
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: #02060f;
       color: #e8eef8;
+    }
+    * {
+      box-sizing: border-box;
     }
     body {
       margin: 0;
@@ -44,239 +47,34 @@ d<!DOCTYPE html>
       color: #9bb3d4;
       line-height: 1.75;
     }
-    .map-frame {
-      position: relative;
-      background: linear-gradient(180deg, rgba(14,23,43,0.96), rgba(8,13,22,0.98));
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 24px;
+    .main-options {
       display: grid;
-      gap: 20px;
+      gap: 18px;
+      padding: 0 36px 36px;
     }
-    .map-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 20px;
-      align-items: center;
-      color: #9bb3d4;
-      font-size: 0.95rem;
-    }
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .search-bar {
-      display: grid;
-      gap: 14px;
-      margin-top: 16px;
-    }
-    .search-fields {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-    .search-bar input {
-      width: 100%;
-      min-width: 190px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 14px;
-      padding: 14px 16px;
+    .option-card {
+      display: block;
+      border-radius: 20px;
+      padding: 22px 24px;
       background: rgba(255,255,255,0.04);
-      color: #eef2ff;
-      font-size: 1rem;
-      outline: none;
-    }
-    .search-bar input:focus {
-      border-color: rgba(98, 91, 255, 0.55);
-      box-shadow: 0 0 0 4px rgba(98, 91, 255, 0.12);
-    }
-    .search-bar button {
-      max-width: 210px;
-      background: linear-gradient(135deg, #645cff, #6dd3ff);
-      border: none;
-      border-radius: 14px;
-      padding: 14px 20px;
-      color: #08101d;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.18s ease, opacity 0.18s ease;
-    }
-    .search-bar button:hover {
-      transform: translateY(-1px);
-      opacity: 0.95;
-    }
-    .search-hint {
-      width: 100%;
-      color: #7b92b1;
-      font-size: 0.92rem;
-      margin-top: 6px;
-    }
-    .path-list {
-      margin-top: 10px;
-      color: #d2e1ff;
-      font-size: 0.93rem;
-      line-height: 1.6;
-    }
-    .path-list strong {
-      color: #fff;
-    }
-    .search-hint strong {
-      color: #fff;
-    }
-    .referral-alert {
-      display: inline-block;
-      background: rgba(255, 144, 144, 0.18);
-      border: 1.5px solid rgba(255, 144, 144, 0.6);
-      border-radius: 10px;
-      padding: 8px 14px;
-      margin-left: 12px;
-      color: #ff9090;
-      font-weight: 700;
-      animation: pulse 1.5s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    .referral-banner {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(90deg, rgba(255, 100, 100, 0.95), rgba(255, 144, 144, 0.95));
-      border-bottom: 3px solid #ff6464;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(255, 100, 100, 0.4);
-      z-index: 1000;
-      animation: slideDown 0.4s ease-out, pulse 1.5s ease-in-out infinite;
-      display: none;
-      letter-spacing: 1px;
-    }
-    .referral-banner.active {
-      display: block;
-    }
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    .arkansas-county {
-      fill: rgba(65, 113, 244, 0.16);
-    }
-    .neighbor-county {
-      fill: rgba(160, 192, 255, 0.08);
-      stroke: rgba(255,255,255,0.04);
-    }
-    .neighbor-county:hover {
-      fill: rgba(160, 192, 255, 0.16);
-      stroke: rgba(255,255,255,0.12);
-    }
-    .state-outline {
-      fill-opacity: 0.08;
-      stroke: rgba(255,255,255,0.2);
-      stroke-width: 1.2;
-    }
-    .arkansas-state {
-      fill: rgba(93, 156, 255, 0.18);
-      stroke: rgba(93, 156, 255, 0.9);
-    }
-    .border-state {
-      fill: rgba(155, 186, 255, 0.1);
-      stroke: rgba(255,255,255,0.18);
-      stroke-dasharray: 4 4;
-    }
-    .county-highlight-source {
-      fill: rgba(255, 216, 117, 0.45) !important;
-      stroke: rgba(255, 216, 117, 0.9) !important;
-      stroke-width: 1.6 !important;
-      filter: drop-shadow(0 0 18px rgba(255, 216, 117, 0.22));
-    }
-    .county-highlight-target {
-      fill: rgba(255, 216, 117, 0.45) !important;
-      stroke: rgba(255, 216, 117, 0.9) !important;
-      stroke-width: 1.6 !important;
-      filter: drop-shadow(0 0 18px rgba(255, 216, 117, 0.22));
-    }
-    .county-highlight-path {
-      fill: rgba(133, 255, 151, 0.36) !important;
-      stroke: rgba(133, 255, 151, 0.75) !important;
-      stroke-width: 1.6 !important;
-      filter: drop-shadow(0 0 18px rgba(133, 255, 151, 0.22));
-    }
-    .region-county {
-      fill: rgba(144, 238, 144, 0.25) !important;
-      stroke: rgba(144, 238, 144, 0.5) !important;
-      stroke-width: 1.2 !important;
-      filter: drop-shadow(0 0 12px rgba(144, 238, 144, 0.15));
-    }
-    .county-path.region-county.county-highlight-source,
-    .county-path.region-county.county-highlight-target {
-      fill: rgba(255, 216, 117, 0.45) !important;
-      stroke: rgba(255, 216, 117, 0.9) !important;
-      stroke-width: 1.6 !important;
-      filter: drop-shadow(0 0 18px rgba(255, 216, 117, 0.22)) !important;
-    }
-    .legend-swatch {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      display: inline-block;
-      background: #625bff;
-    }
-    .map-container {
-      width: 100%;
-      min-height: 640px;
-      border-radius: 22px;
-      background: radial-gradient(circle at 20% 35%, rgba(98, 91, 255, 0.15), transparent 18%),
-                  #061220;
-      overflow: hidden;
-      position: relative;
-    }
-    svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-    .tooltip {
-      position: absolute;
-      left: 0;
-      top: 0;
-      transform: translate(-50%, -100%);
-      padding: 10px 14px;
-      border-radius: 14px;
-      background: rgba(14, 22, 38, 0.94);
       border: 1px solid rgba(255,255,255,0.08);
-      color: #f4f7ff;
-      font-size: 0.95rem;
-      pointer-events: none;
-      white-space: nowrap;
-      opacity: 0;
-      transition: opacity 0.15s ease, transform 0.15s ease;
-      z-index: 2;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
     }
-    .tooltip.visible {
-      opacity: 1;
-      transform: translate(-50%, -120%);
+    .option-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(98, 91, 255, 0.7);
+      background: rgba(98, 91, 255, 0.08);
     }
-    .county-path {
-      fill: rgba(65, 113, 244, 0.12);
-      stroke: rgba(255,255,255,0.06);
-      stroke-width: 0.7;
-      transition: fill 0.18s ease, stroke 0.18s ease, filter 0.18s ease;
-      cursor: pointer;
+    .option-card h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
     }
-    .county-path:hover {
-      fill: rgba(98, 91, 255, 0.28);
-      stroke: rgba(255,255,255,0.2);
-      filter: drop-shadow(0 0 17px rgba(98, 91, 255, 0.2));
-    }
-    .county-label {
-      font-size: 0.72rem;
-      fill: #eaf1ff;
-      pointer-events: none;
+    .option-card p {
+      margin: 0;
+      color: #c5d0eb;
+      line-height: 1.6;
     }
     .footer {
       padding: 0 36px 28px;
@@ -288,398 +86,38 @@ d<!DOCTYPE html>
       .header {
         padding: 22px 20px 16px;
       }
-      .map-frame {
-        padding: 18px;
+      .main-options {
+        padding: 0 20px 28px;
+      }
+      .footer {
+        padding: 0 20px 28px;
       }
     }
   </style>
 </head>
 <body>
-  <div id="referralBanner" class="referral-banner">⚠ REFERRAL REQUIRED ⚠</div>
   <div class="page">
     <article class="card">
       <header class="header">
-        <h1>Benton Call Center Referral Helper</h1>
-        <p>Interactive Arkansas county map to determine if a referral is needed based on distance between counties. Hover over a county to view its name and explore the state's administrative areas.</p>
+        <h1>Welcome to Garretts Resource Tools </h1>
+        <p>Choose one of the tools below to continue. The county map helper is available from the link below.</p>
       </header>
-      <section class="map-frame">
-        <div class="map-legend">
-          <div class="legend-item"><span class="legend-swatch" style="background: rgba(144, 238, 144, 0.4);"></span>Your service region</div>
-          <div class="legend-item"><span class="legend-swatch"></span>Counties within 50 miles of Arkansas border</div>
-          <div class="legend-item">Arkansas counties are highlighted in blue</div>
-          <div class="legend-item">Neighbor counties are shown in subtle blue</div>
-          <div class="legend-item">Residence and destination light up</div>
-          <div class="legend-item">Path counties between them are highlighted</div>
-        </div>
-        <div class="search-bar">
-          <div class="search-fields">
-            <input id="countySearchSource" type="search" placeholder="Residence" aria-label="Residence" />
-            <input id="countySearchTarget" type="search" placeholder="Destination" aria-label="Destination" />
-          </div>
-          <button id="searchBtn" type="button">Highlight counties</button>
-          <div id="searchStatus" class="search-hint">Type two counties and press Enter or click Highlight counties.</div>
-          <div id="pathList" class="path-list"></div>
-        </div>
-        <div class="map-container">
-          <div class="tooltip" id="tooltip">County</div>
-          <svg id="arkansasMap" viewBox="0 0 960 640" aria-label="Arkansas county map"></svg>
-        </div>
+      <section class="main-options">
+        <a class="option-card" href="map.html">
+          <h2>Arkansas County Map</h2>
+          <p>Open the county referral helper and interactive Arkansas county map in a separate page.</p>
+        </a>
+        <a class="option-card" href="local-office-numbers.html">
+          <h2>Local Office Numbers</h2>
+          <p>View the separate directory of phone numbers for local county offices.</p>
+        </a>
+        <a class="option-card" href="address-entry-tutorial.html">
+          <h2>Address Entry Tutorial</h2>
+          <p>Read the eight-step guide for entering an address correctly.</p>
+        </a>
       </section>
-      <footer class="footer">This map uses D3 and TopoJSON to render Arkansas counties from public US atlas data. It works best with an internet connection to load the external geography file.</footer>
+      <footer class="footer">Use the map page for county search, path highlighting, and referral determination.</footer>
     </article>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/topojson@3/dist/topojson.min.js"></script>
-  <script>
-    const svg = d3.select('#arkansasMap');
-    const tooltip = d3.select('#tooltip');
-    const searchInputSource = document.getElementById('countySearchSource');
-    const searchInputTarget = document.getElementById('countySearchTarget');
-    const searchBtn = document.getElementById('searchBtn');
-    const searchStatus = document.getElementById('searchStatus');
-    const pathList = document.getElementById('pathList');
-    const referralBanner = document.getElementById('referralBanner');
-    const regionCounties = ['Saline', 'Garland', 'Montgomery', 'Howard', 'Sevier', 'Pike', 'Clark', 'Hot Spring', 'Dallas', 'Little River', 'Miller', 'Lafayette', 'Columbia', 'Union', 'Ouachita', 'Calhoun', 'Nevada', 'Hempstead'];
-    const width = 960;
-    const height = 640;
-    let countyPaths = null;
-      let arkansasPathIndex = {};
-      let arkansasNeighbors = {};
-    const projection = d3.geoMercator().scale(1).translate([0, 0]);
-    const path = d3.geoPath(projection);
-
-    function getBoundaryPoints(stateFeature) {
-      const points = [];
-      if (!stateFeature || !stateFeature.geometry) return points;
-      const coords = stateFeature.geometry.coordinates;
-      const visitRing = ring => {
-        ring.forEach(coord => points.push(coord));
-      };
-      if (stateFeature.geometry.type === 'Polygon') {
-        coords.forEach(visitRing);
-      } else if (stateFeature.geometry.type === 'MultiPolygon') {
-        coords.forEach(polygon => polygon.forEach(visitRing));
-      }
-      return points;
-    }
-
-    function minDistanceToArkansasBorder(feature, borderPoints) {
-      if (!feature || !feature.geometry || borderPoints.length === 0) return Infinity;
-      const featurePoints = [];
-      const collectPoints = coords => {
-        coords.forEach(point => {
-          if (Array.isArray(point[0])) {
-            collectPoints(point);
-          } else {
-            featurePoints.push(point);
-          }
-        });
-      };
-      collectPoints(feature.geometry.coordinates);
-      let minDist = Infinity;
-      for (const fPoint of featurePoints) {
-        for (const bPoint of borderPoints) {
-          const distRad = d3.geoDistance([fPoint[0], fPoint[1]], [bPoint[0], bPoint[1]]);
-          const distMiles = distRad * 6371 * 0.621371;
-          if (distMiles < minDist) minDist = distMiles;
-          if (minDist <= 0) return 0;
-        }
-      }
-      return minDist;
-    }
-
-    async function drawArkansasMap() {
-      try {
-        const response = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json');
-        if (!response.ok) throw new Error('Unable to load county topology data');
-        const us = await response.json();
-        const counties = topojson.feature(us, us.objects.counties).features;
-        const states = topojson.feature(us, us.objects.states).features;
-        const arkansasState = states.find(state => Number(state.id) === 5 || (state.properties && state.properties.name && state.properties.name.toLowerCase() === 'arkansas'));
-        const borderStateCodes = ['05','29','47','28','22','48','40'];
-        const borderStates = states.filter(state => borderStateCodes.includes(String(state.id).padStart(2, '0')) || Number(state.id) === 5);
-        const arkansasBorderPoints = getBoundaryPoints(arkansasState);
-        const borderDistanceMiles = 25;
-        const borderCounties = counties.filter(county => {
-          if (county.id.startsWith('05')) return true;
-          if (!borderStateCodes.some(code => county.id.startsWith(code))) return false;
-          const distance = minDistanceToArkansasBorder(county, arkansasBorderPoints);
-          return distance <= borderDistanceMiles;
-        });
-        const arkansas = { type: 'FeatureCollection', features: borderCounties };
-        const borderStateFeatures = borderStates;
-        const neighbors = topojson.neighbors(us.objects.counties.geometries);
-        const arIndexMap = new Map();
-        borderCounties.forEach((feature, idx) => {
-          const globalIndex = counties.indexOf(feature);
-          arIndexMap.set(globalIndex, idx);
-          arkansasPathIndex[feature.id] = idx;
-        });
-        borderCounties.forEach((feature, idx) => {
-          const globalIndex = counties.indexOf(feature);
-          const adjacent = neighbors[globalIndex]
-            .map(neighborIndex => arIndexMap.has(neighborIndex) ? arIndexMap.get(neighborIndex) : null)
-            .filter(index => index !== null);
-          arkansasNeighbors[idx] = adjacent;
-        });
-
-        const arkansasFeatureCollection = { type: 'FeatureCollection', features: [arkansasState] };
-        projection.fitSize([width, height], arkansasFeatureCollection);
-        projection.center(d3.geoCentroid(arkansasState));
-        projection.scale(projection.scale() * 0.88).translate([width / 2, height / 2]);
-
-        svg.append('g')
-          .attr('class', 'state-layer')
-          .selectAll('path')
-          .data(borderStateFeatures)
-          .join('path')
-          .attr('class', d => Number(d.id) === 5 ? 'state-outline arkansas-state' : 'state-outline border-state')
-          .attr('d', path);
-
-        countyPaths = svg.append('g')
-          .attr('class', 'county-layer')
-          .selectAll('path')
-          .data(arkansas.features)
-          .join('path')
-          .attr('class', d => {
-            const countyName = (d.properties.name || '').replace(' County', '').replace(' Parish', '');
-            let classes = `county-path ${d.id.startsWith('05') ? 'arkansas-county' : 'neighbor-county'}`;
-            if (d.id.startsWith('05') && regionCounties.includes(countyName)) classes += ' region-county';
-            return classes;
-          })
-          .attr('d', path)
-          .on('mousemove', (event, d) => {
-            const [x, y] = d3.pointer(event, svg.node());
-            tooltip
-              .style('left', `${x}px`)
-              .style('top', `${y}px`)
-              .classed('visible', true)
-              .text(d.properties.name || d.id);
-          })
-          .on('mouseleave', () => tooltip.classed('visible', false));
-
-        svg.selectAll('text')
-          .data(arkansas.features)
-          .join('text')
-          .attr('class', 'county-label')
-          .attr('transform', d => {
-            const [x, y] = path.centroid(d);
-            return `translate(${x},${y})`;
-          })
-          .attr('dy', '0.3em')
-          .text(d => {
-            const name = d.properties.name || d.id;
-            return name.length > 12 ? name.split(' ')[0] : name;
-          });
-
-        addSearchHandlers();
-      } catch (error) {
-        svg.append('text')
-          .attr('x', width / 2)
-          .attr('y', height / 2)
-          .attr('text-anchor', 'middle')
-          .attr('fill', '#ff9090')
-          .attr('font-size', 20)
-          .text('Failed to load map data.');
-        console.error(error);
-      }
-    }
-
-    function findCountyByName(searchValue) {
-      if (!countyPaths) return null;
-      const normalized = searchValue.trim().toLowerCase();
-      if (!normalized) return null;
-      
-      const nodes = countyPaths.nodes();
-      let exactMatch = null;
-      let wordMatch = null;
-      let partialMatch = null;
-      let exactMatchAR = null;
-      let wordMatchAR = null;
-      let partialMatchAR = null;
-      
-      for (const node of nodes) {
-        const datum = d3.select(node).datum();
-        const fullName = (datum.properties.name || '').toLowerCase();
-        const nameWithoutCounty = fullName.replace(' county', '').replace(' parish', '').toLowerCase();
-        const isArkansas = datum.id.startsWith('05');
-        
-        if (fullName === normalized || nameWithoutCounty === normalized) {
-          if (isArkansas) {
-            exactMatchAR = node;
-            break;
-          }
-          exactMatch = node;
-        } else if (fullName.startsWith(normalized) || nameWithoutCounty.startsWith(normalized)) {
-          if (isArkansas && !wordMatchAR) {
-            wordMatchAR = node;
-          } else if (!isArkansas && !wordMatch) {
-            wordMatch = node;
-          }
-        } else if (fullName.includes(normalized) || nameWithoutCounty.includes(normalized)) {
-          if (isArkansas && !partialMatchAR) {
-            partialMatchAR = node;
-          } else if (!isArkansas && !partialMatch) {
-            partialMatch = node;
-          }
-        }
-      }
-      
-      const result = exactMatchAR || exactMatch || wordMatchAR || wordMatch || partialMatchAR || partialMatch;
-      if (result) {
-        console.log('Found:', d3.select(result).datum().properties.name);
-      }
-      return result;
-    }
-
-    function highlightCounties(sourceElement, targetElement) {
-      if (!countyPaths) return;
-      countyPaths.classed('county-highlight-source', false).classed('county-highlight-target', false).classed('county-highlight-path', false);
-      tooltip.classed('visible', false);
-
-      const pathElements = findIntermediatePath(sourceElement, targetElement);
-      if (pathElements && pathElements.length > 0) {
-        pathElements.forEach((element, index) => {
-          const selection = d3.select(element);
-          if (index === 0 && element === sourceElement) {
-            selection.classed('county-highlight-source', true);
-          } else if (index === pathElements.length - 1 && element === targetElement) {
-            selection.classed('county-highlight-target', true);
-          } else {
-            selection.classed('county-highlight-path', true);
-          }
-        });
-      } else {
-        if (sourceElement) d3.select(sourceElement).classed('county-highlight-source', true);
-        if (targetElement) d3.select(targetElement).classed('county-highlight-target', true);
-      }
-
-      if (sourceElement && !targetElement) {
-        showTooltipForCounty(sourceElement);
-      }
-      if (targetElement && !sourceElement) {
-        showTooltipForCounty(targetElement);
-      }
-    }
-
-    function showTooltipForCounty(element) {
-      const bounds = path.bounds(d3.select(element).datum());
-      const x = (bounds[0][0] + bounds[1][0]) / 2;
-      const y = (bounds[0][1] + bounds[1][1]) / 2;
-      tooltip
-        .style('left', `${x}px`)
-        .style('top', `${y}px`)
-        .classed('visible', true)
-        .text(d3.select(element).datum().properties.name || 'County');
-    }
-
-    function findIntermediatePath(sourceElement, targetElement) {
-      if (!sourceElement || !targetElement || sourceElement === targetElement) return sourceElement ? [sourceElement] : [];
-      const nodes = countyPaths.nodes();
-      const sourceIdx = nodes.indexOf(sourceElement);
-      const targetIdx = nodes.indexOf(targetElement);
-      if (sourceIdx < 0 || targetIdx < 0) return [];
-      const queue = [sourceIdx];
-      const visited = new Array(Object.keys(arkansasNeighbors).length).fill(false);
-      const previous = new Array(Object.keys(arkansasNeighbors).length).fill(null);
-      const isArkansasNode = index => {
-        const d = d3.select(nodes[index]).datum();
-        return d && String(d.id).startsWith('05');
-      };
-      const targetIsArkansas = isArkansasNode(targetIdx);
-
-      visited[sourceIdx] = true;
-
-      while (queue.length) {
-        const current = queue.shift();
-        if (current === targetIdx) break;
-        for (const neighbor of arkansasNeighbors[current] || []) {
-          if (visited[neighbor]) continue;
-          // Prefer Arkansas routing and only traverse out-of-state counties if it's the target.
-          if (!isArkansasNode(neighbor) && neighbor !== targetIdx && targetIsArkansas) continue;
-          visited[neighbor] = true;
-          previous[neighbor] = current;
-          queue.push(neighbor);
-        }
-      }
-
-      if (!visited[targetIdx]) return [];
-      const pathIndices = [];
-      let node = targetIdx;
-      while (node !== null) {
-        pathIndices.unshift(node);
-        node = previous[node];
-      }
-      return pathIndices.map(idx => nodes[idx]);
-    }
-
-    function handleSearch() {
-      const sourceQuery = searchInputSource.value;
-      const targetQuery = searchInputTarget.value;
-      const sourceMatch = findCountyByName(sourceQuery);
-      const targetMatch = findCountyByName(targetQuery);
-      const pathElements = findIntermediatePath(sourceMatch, targetMatch);
-      highlightCounties(sourceMatch, targetMatch);
-
-      if (!sourceQuery.trim() && !targetQuery.trim()) {
-        searchStatus.textContent = 'Type two counties and press Enter or click Highlight counties.';
-        referralBanner.classList.remove('active');
-        return;
-      }
-
-      if (!sourceQuery.trim()) {
-        searchStatus.textContent = 'Please enter a source county.';
-        pathList.innerHTML = '';
-        referralBanner.classList.remove('active');
-      } else if (!sourceMatch) {
-        searchStatus.textContent = `Source county not found: ${sourceQuery}`;
-        pathList.innerHTML = '';
-        referralBanner.classList.remove('active');
-      } else if (!targetQuery.trim()) {
-        searchStatus.textContent = 'Please enter a target county.';
-        pathList.innerHTML = '';
-        referralBanner.classList.remove('active');
-      } else if (!targetMatch) {
-        searchStatus.textContent = `Target county not found: ${targetQuery}`;
-        pathList.innerHTML = '';
-        referralBanner.classList.remove('active');
-      } else if (pathElements && pathElements.length > 0) {
-        const betweenCount = Math.max(0, pathElements.length - 2);
-        const sourceName = sourceMatch.__data__.properties.name;
-        const targetName = targetMatch.__data__.properties.name;
-        const referralNeeded = betweenCount >= 2;
-        searchStatus.innerHTML = `${betweenCount} counties between ${sourceName} and ${targetName}.`;
-        if (referralNeeded) {
-          referralBanner.classList.add('active');
-        } else {
-          referralBanner.classList.remove('active');
-        }
-        
-        if (betweenCount > 0) {
-          const betweenNames = pathElements.slice(1, -1).map(el => d3.select(el).datum().properties.name || 'Unknown');
-          pathList.innerHTML = `<strong>Middle counties:</strong> ${betweenNames.join(', ')}`;
-        } else {
-          pathList.innerHTML = '<strong>No counties between source and target.</strong>';
-        }
-      } else {
-        searchStatus.textContent = `No path found between ${sourceMatch.__data__.properties.name} and ${targetMatch.__data__.properties.name}.`;
-        pathList.innerHTML = '';
-      }
-    }
-
-    function addSearchHandlers() {
-      searchBtn.addEventListener('click', handleSearch);
-      [searchInputSource, searchInputTarget].forEach(input => {
-        input.addEventListener('keydown', event => {
-          if (event.key === 'Enter') {
-            event.preventDefault();
-            handleSearch();
-          }
-        });
-      });
-    }
-
-    drawArkansasMap();
-  </script>
 </body>
 </html>
