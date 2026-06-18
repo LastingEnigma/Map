@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Address Entry Tutorial</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #02060f;
+      color: #e8eef8;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top left, rgba(138, 84, 255, 0.18), transparent 22%),
+                  linear-gradient(180deg, #071229 0%, #020610 100%);
+    }
+    .page {
+      display: grid;
+      place-items: center;
+      padding: 32px 16px 48px;
+    }
+    .card {
+      width: min(960px, 100%);
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5, 11, 23, 0.96);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .header {
+      padding: 28px 36px 18px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3.5vw, 2.6rem);
+      letter-spacing: -0.03em;
+    }
+    .header p {
+      margin: 14px 0 0;
+      max-width: 760px;
+      color: #9bb3d4;
+      line-height: 1.75;
+    }
+    .top-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: #9bb3d4;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 10px 16px;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .top-link:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(98, 91, 255, 0.6);
+    }
+    .steps {
+      padding: 20px 36px 32px;
+      display: grid;
+      gap: 20px;
+    }
+    .step {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .step-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: rgba(98, 91, 255, 0.18);
+      color: #c8d7ff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .step-title {
+      margin: 0;
+      color: #eef2ff;
+      font-size: 1.05rem;
+    }
+    .step p {
+      margin: 0;
+      color: #b8c8e4;
+      line-height: 1.75;
+    }
+    .step-image {
+      margin-top: 16px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .step-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      min-height: 180px;
+      background: linear-gradient(135deg, rgba(98,91,255,0.15), rgba(66, 100, 189, 0.08));
+    }
+    .step-image span {
+      display: block;
+      padding: 18px;
+      color: #9bb3d4;
+      font-size: 0.95rem;
+      text-align: center;
+      background: rgba(14, 22, 38, 0.94);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer {
+      padding: 0 36px 28px;
+      color: #7f96b4;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    @media (max-width: 760px) {
+      .header {
+        padding: 22px 20px 16px;
+      }
+      .steps {
+        padding: 20px;
+      }
+      .footer {
+        padding: 0 20px 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="card">
+      <header class="header">
+        <a class="top-link" href="index.html">← Back to main page</a>
+        <h1>Address Entry Tutorial</h1>
+        <p>Follow these eight steps to enter an address correctly in the system. This tutorial is designed to keep the process clear and consistent.</p>
+      </header>
+      <section class="steps">
+        <div class="step">
+          <div class="step-header">
+            <div class="step-number">1</div>
+            <h2 class="step-title">Start with the full street address</h2>
+          </div>
+          <p>Enter the street number and name in the address field, including apartment or suite numbers when applicable.</p>
+          <div class="step-image">
+            <img src="placeholder-step-1.png" alt="Placeholder image for step 1" />
+            <span>Step 1 screenshot placeholder</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-header">
+            <div class="step-number">2</div>
+            <h2 class="step-title">Choose the correct city</h2>
+          </div>
+          <p>Select or type the city exactly as it appears in official records to avoid misrouting.</p>
+          <div class="step-image">
+            <img src="placeholder-step-2.png" alt="Placeholder image for step 2" />
+            <span>Step 2 screenshot placeholder</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-header">
+            <div class="step-number">3</div>
+            <h2 class="step-title">Select the right county</h2>
+          </div>
+          <p>Make sure the county matches the city and address. This is essential for accurate referral and routing decisions.</p>
+          <div class="step-image">
+            <img src="placeholder-step-3.png" alt="Placeholder image for step 3" />
+            <span>Step 3 screenshot placeholder</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-header">
+            <div class="step-number">4</div>
+            <h2 class="step-title">Choose the state</h2>
+          </div>
+          <p>Verify the state selection is correct, especially for cities near state borders or multiple cities with the same name.</p>
+          <div class="step-image">
+            <img src="placeholder-step-4.png" alt="Placeholder image for step 4" />
+            <span>Step 4 screenshot placeholder</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-header">
+            <div class="step-number">5</div>
+            <h2 class="step-title">Enter the ZIP code</h2>
+          </div>
+          <p>Use the 5-digit ZIP code specific to the address. If available, include the ZIP+4 extension for greater accuracy.</p>
+          <div class="step-image">
+            <img src="placeholder-step-5.png" alt="Placeholder image for step 5" />
+            <span>Step 5 screenshot placeholder</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-header">
+            <div class="step-number">6</div>
+            <h2 class="step-title">Review the full address</h2>
+          </div>
+          <p>Check every field again for typos, missing abbreviations, or misplaced apartment numbers.</p>
+          <div class="step-image">
+            <img src="placeholder-step-6.png" alt="Placeholder image for step 6" />
+            <span>Step 6 screenshot placeholder</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-header">
+            <div class="step-number">7</div>
+            <h2 class="step-title">Confirm the mapped location</h2>
+          </div>
+          <p>When possible, use the map preview or address validation tool to confirm the entered address resolves to the correct location.</p>
+          <div class="step-image">
+            <img src="placeholder-step-7.png" alt="Placeholder image for step 7" />
+            <span>Step 7 screenshot placeholder</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-header">
+            <div class="step-number">8</div>
+            <h2 class="step-title">Save and verify</h2>
+          </div>
+          <p>Submit the address, then verify the final record for consistency with the original input before moving on.</p>
+          <div class="step-image">
+            <img src="placeholder-step-8.png" alt="Placeholder image for step 8" />
+            <span>Step 8 screenshot placeholder</span>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">This page is a step-by-step guide to help ensure address entries are complete and accurate.</footer>
+    </article>
+  </div>
+</body>
+</html>
