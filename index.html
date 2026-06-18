@@ -305,7 +305,7 @@ d<!DOCTYPE html>
       <section class="map-frame">
         <div class="map-legend">
           <div class="legend-item"><span class="legend-swatch" style="background: rgba(144, 238, 144, 0.4);"></span>Your service region</div>
-          <div class="legend-item"><span class="legend-swatch"></span>Counties within 75 miles of Arkansas border</div>
+          <div class="legend-item"><span class="legend-swatch"></span>Counties within 50 miles of Arkansas border</div>
           <div class="legend-item">Arkansas counties are highlighted in blue</div>
           <div class="legend-item">Neighbor counties are shown in subtle blue</div>
           <div class="legend-item">Residence and destination light up</div>
@@ -399,7 +399,7 @@ d<!DOCTYPE html>
         const borderStateCodes = ['05','29','47','28','22','48','40'];
         const borderStates = states.filter(state => borderStateCodes.includes(String(state.id).padStart(2, '0')) || Number(state.id) === 5);
         const arkansasBorderPoints = getBoundaryPoints(arkansasState);
-        const borderDistanceMiles = 75;
+        const borderDistanceMiles = 50;
         const borderCounties = counties.filter(county => {
           if (county.id.startsWith('05')) return true;
           if (!borderStateCodes.some(code => county.id.startsWith(code))) return false;
